@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgmxo5g2b72oo"]
+
+[ext_resource type="PackedScene" uid="uid://b1oova6tjfpj" path="res://head.tscn" id="1_baghe"]
+[ext_resource type="Script" uid="uid://c8wc2h14fsmpf" path="res://snake.gd" id="1_gxkgb"]
+
+[node name="Snake" type="Node2D"]
+script = ExtResource("1_gxkgb")
+
+[node name="Head" parent="." instance=ExtResource("1_baghe")]
+unique_name_in_owner = true

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcntmdpo18yps"]
+
+[ext_resource type="Script" uid="uid://djfw413jt57ts" path="res://main_menu.gd" id="1_06t4h"]
+
+[node name="Main Menu" type="VisibleOnScreenNotifier2D"]
+process_mode = 3
+script = ExtResource("1_06t4h")
+
+[node name="Button Manager" type="CenterContainer" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+mouse_filter = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Button Manager"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Start" type="Button" parent="Button Manager/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+action_mode = 0
+text = "Start"
+flat = true
+
+[node name="Quit" type="Button" parent="Button Manager/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit
+"
+flat = true

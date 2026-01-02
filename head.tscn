@@ -3,27 +3,27 @@
 [ext_resource type="Texture2D" uid="uid://t0xa8esrts74" path="res://snake.png" id="1_baghe"]
 [ext_resource type="Script" uid="uid://bt3myitv6lt8f" path="res://head.gd" id="1_hukeq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_baghe"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hukeq"]
 atlas = ExtResource("1_baghe")
-region = Rect2(24, 24, 8, 8)
+region = Rect2(24, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxkgb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pij62"]
 atlas = ExtResource("1_baghe")
-region = Rect2(16, 24, 8, 8)
+region = Rect2(16, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2x2sd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_akhm5"]
 atlas = ExtResource("1_baghe")
-region = Rect2(32, 24, 8, 8)
+region = Rect2(32, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_olj5u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nidb"]
 atlas = ExtResource("1_baghe")
-region = Rect2(8, 24, 8, 8)
+region = Rect2(8, 0, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dw1s1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_baghe")
+"texture": SubResource("AtlasTexture_hukeq")
 }],
 "loop": true,
 "name": &"down",
@@ -31,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gxkgb")
+"texture": SubResource("AtlasTexture_pij62")
 }],
 "loop": true,
 "name": &"left",
@@ -39,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2x2sd")
+"texture": SubResource("AtlasTexture_akhm5")
 }],
 "loop": true,
 "name": &"right",
@@ -47,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_olj5u")
+"texture": SubResource("AtlasTexture_7nidb")
 }],
 "loop": true,
 "name": &"up",
@@ -55,10 +55,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_baghe"]
-size = Vector2(8, 8)
+size = Vector2(4, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hukeq"]
-size = Vector2(6, 6)
+size = Vector2(4, 4)
 
 [node name="Head" type="CharacterBody2D"]
 collision_mask = 10

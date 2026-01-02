@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://djfw413jt57ts" path="res://main_menu.gd" id="1_06t4h"]
 
-[node name="Main Menu" type="VisibleOnScreenNotifier2D"]
+[node name="Main Menu" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_06t4h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 0.8627451)
 
 [node name="Button Manager" type="CenterContainer" parent="."]
 offset_right = 320.0
@@ -12,6 +17,7 @@ offset_bottom = 240.0
 mouse_filter = 2
 
 [node name="Buttons" type="VBoxContainer" parent="Button Manager"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
 

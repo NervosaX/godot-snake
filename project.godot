@@ -22,6 +22,8 @@ window/size/viewport_height=240
 window/size/window_width_override=1280
 window/size/window_height_override=960
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/stretch/scale_mode="integer"
 
 [editor]
 
@@ -31,6 +33,10 @@ version_control/autoload_on_startup=true
 [global_group]
 
 cherries=""
+
+[gui]
+
+theme/custom_font="uid://c0h6ux4vwgd4"
 
 [input]
 

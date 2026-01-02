@@ -1,15 +1,17 @@
-extends VisibleOnScreenNotifier2D
+extends Node2D
 
 func _ready() -> void:
-	screen_entered.connect(_on_screen_entered)
-	%Restart.pressed.connect(_on_restart_pressed)
-	%Quit.pressed.connect(_on_quit_pressed)
-
-func _on_screen_entered() -> void:
-	%Restart.grab_focus()
+    %Buttons.visibility_changed.connect(_on_visibility_changed)
+    %Restart.pressed.connect(_on_restart_pressed)
+    %Quit.pressed.connect(_on_quit_pressed)
 
 func _on_restart_pressed() -> void:
-	get_node("/root/Game").game_restarted.emit()
+    get_node("/root/Game").game_restarted.emit()
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+    get_tree().quit()
+
+func _on_visibility_changed():
+    if  %Buttons.visible:
+        %ScoreLabel.text = "Score: " + str(get_node("/root/Game").score)
+        %Restart.grab_focus()

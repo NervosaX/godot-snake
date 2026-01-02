@@ -46,6 +46,7 @@ func apply_next_direction():
             
 func _on_area_entered(area: Area2D):
     if area.is_in_group("cherries"):
+        $PickupPlayer.play()
         area.queue_free()
         get_node("/root/Game").cherry_collected.emit()
         

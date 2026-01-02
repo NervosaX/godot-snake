@@ -34,9 +34,6 @@ func _process(delta: float) -> void:
     for i in range(tails.size()):
         tails[i].position = tails[i].position.lerp(tail_targets[i], interpolation_progress)
 
-    if interpolation_progress >= 1.0:
-        check_collisions()
-
 func _on_cherry_collected():
     var last_tail = tails.back()
     if not last_tail:
@@ -84,12 +81,3 @@ func add_tail_at_pos(pos: Vector2) -> void:
     tail.position = pos
     add_child(tail)
     tails.append(tail)
-    
-func check_collisions():
-    var overlapping_areas = head.detection_area.get_overlapping_areas()
-    for area in overlapping_areas:
-        if area.is_in_group("cherries"):
-            area.queue_free()
-            get_node("/root/Game").cherry_collected.emit()
-        elif area.is_in_group("tails"):
-            get_node("/root/Game").game_ended.emit()

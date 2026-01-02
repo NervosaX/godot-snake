@@ -3,6 +3,8 @@ extends Node2D
 signal cherry_collected
 signal game_ended
 signal game_restarted
+signal game_paused
+signal game_unpaused
 
 var score = 0
 
@@ -10,14 +12,12 @@ func _ready() -> void:
     cherry_collected.connect(_on_cherry_collected)
     game_ended.connect(_on_game_ended)
     game_restarted.connect(_on_game_restarted)
+    game_paused.connect(_on_game_paused)
+    game_unpaused.connect(_on_game_unpaused)
     $"CanvasLayer/Main Menu".show_start_menu()
     generate_cherry()
     
-func _on_cherry_collected():
-    score += 7
-    %ScoreLabel.text = str(score)
-    generate_cherry()
-    
+   
 func get_occupied_positions() -> Array[Vector2]:
     var occupied: Array[Vector2] = []
 
@@ -67,11 +67,19 @@ func generate_cherry():
 
 func _on_game_ended():
     get_tree().paused = true
+    game_paused.emit()
     $"CanvasLayer/Game Over Menu".visible = true
     
+func _on_cherry_collected():
+    score += 7
+    %ScoreLabel.text = str(score)
+    generate_cherry()
+    
 func _on_game_restarted():
+    score = 0
     $Snake.reset()
     get_tree().paused = false
+    game_unpaused.emit()
     $"CanvasLayer/Game Over Menu".visible = false
 
     var cherries = get_tree().get_nodes_in_group("cherries")
@@ -79,6 +87,12 @@ func _on_game_restarted():
         cherry.queue_free()
         
     generate_cherry()
+    
+func _on_game_paused():
+    $BackgroundMusic.volume_db = -5.0
+    
+func _on_game_unpaused():
+    $BackgroundMusic.volume_db = 0.0
 
 func _input(event):
     if event.is_action_pressed("ui_cancel"):

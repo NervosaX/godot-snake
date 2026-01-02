@@ -17,6 +17,11 @@ func _show_menu(show: bool):
     visible = show
     get_tree().paused = show
 
+    if show:
+        get_node("/root/Game").game_paused.emit()
+    else:
+        get_node("/root/Game").game_unpaused.emit()
+        
 func _on_start_pressed() -> void:
     _show_menu(false)
 
